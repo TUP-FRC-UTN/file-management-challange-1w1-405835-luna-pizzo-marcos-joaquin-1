@@ -1,1 +1,35 @@
-add code here!!
+<div class="container">
+ <div class="row col-12">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary position-relative">
+    <div class="container-fluid">
+
+      <a class="navbar-brand" href="#">Archivos</a>
+
+      <div class="collapse navbar-collapse col-6 d-flex justify-content-end " id="navbarNavDropdown">
+        <ul class="navbar-nav ps-0 ms-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle bg-primary text-light rounded " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Acciones
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#" (click)="nuevo()">Agregar</a></li>
+              <li><a class="dropdown-item" href="#">Borrar</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+ </div>
+ <hr>
+ @if (agrear) {
+  <app-form 
+        (cerrar)="cerrar($event)"
+        (element)="agregar($event)"
+  ></app-form>
+ }@else { 
+  <app-tabla [files]="files"></app-tabla>
+  
+ }
+ 
+</div>

@@ -1,0 +1,42 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Dueños</th>
+      </tr>
+    </thead>
+    <tbody>
+
+        @for (item of files; track $index) {
+            <tr>
+                <th scope="row">
+                    <input type="checkbox" class="form-check-input" name="checkbox" id="checkbox">
+                </th>
+                @if (item.name.length>10) {
+                    <td data-bs-togle="tooltip" title="{{item.name}}">{{item.name.substring(0,10)}}...</td>
+
+                }@else {           
+                         <td>{{item.name}}</td>
+                      }
+
+                <td>{{item.creation | date:'MMM d/yyyy'}}</td>
+                <th>
+                    @for (ow of item.owners; track $index) {
+                        @if ($index<3) {
+                            <img src="{{ow.avatarUrl}}" alt=""
+                            style="width: 50px; border-radius: 50%;">
+        
+                        }@else if($index==3) {
+                            <span> +{{item.owners.length-3}}</span>
+                            
+                        }
+                      
+                    }
+                </th>
+               
+            </tr>
+        }
+    </tbody>
+  </table>

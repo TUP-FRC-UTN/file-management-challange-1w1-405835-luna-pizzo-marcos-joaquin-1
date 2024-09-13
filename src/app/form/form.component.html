@@ -1,0 +1,25 @@
+<form class="row g-3 ">
+ 
+        <div class="col-12 ">
+            <label for="inputName" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="inputName" placeholder="Ingrese el nombre" [(ngModel)]="nombre">
+          </div>
+          <div class="col-12">
+            <label for="inputFecha" class="form-label">Fecha</label>
+            <input type="date" class="form-control" id="inputFecha" [(ngModel)]="fecha">
+          </div>
+      
+          <select class="form-select" aria-label="Seleccione un tipo de archivo">
+            <option selected>Archivo</option>
+            <option value="1">Carpeta</option>
+          </select>
+
+          <div class="col-6 ">
+              <button type="submit" class="btn border-black" (click)="close()">Cancelar</button>
+            </div>
+      
+          <div class="col-6 d-flex justify-content-end">
+            <button type="submit" class="btn btn-primary" (click)="sendFile()">Aceptar</button>
+          </div>
+ 
+  </form>
